@@ -26,11 +26,14 @@ class HomeVC: UIViewController {
     @IBOutlet weak var waveScrollView: WaveScrollView!
     @IBOutlet weak var bottomWaveView: WaveFormView!
     
+    lazy var viewModel = HomeViewModel(rootController: self)
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initLayout()
         addActions()
+        subscribeToViewModel()
     }
     
     // MARK: Initialize layout
@@ -60,12 +63,14 @@ class HomeVC: UIViewController {
         // music library
         let importVideoButton = UIAlertAction(title: "Music Library", style: .default) { (action) in
             // show import from music library
+            self.viewModel.showImport(withType: .itunes)
         }
         importVideoButton.setValue(UIImage(named: "video"), forKey: "image")
         
         // icloud
         let importMoreButton = UIAlertAction(title: "Browse", style: .default) { (action) in
             // show import from icloud drive
+            self.viewModel.showImport(withType: .icloud)
         }
         importMoreButton.setValue(UIImage(named: "more"), forKey: "image")
         
@@ -74,5 +79,48 @@ class HomeVC: UIViewController {
         actionSheetController.addAction(importMoreButton)
         
         self.present(actionSheetController, animated: true, completion: nil)
+    }
+    
+    // MARK: Subscribe to ViewModel
+    func subscribeToViewModel() {
+        // show audio information
+        viewModel.selectedUrlSubject.asObservable().map { (url) -> Song in
+            url.toSongObject()
+            }.subscribe(onNext: {[weak self] (song) in
+                self?.showMetadata(song: song)
+            })
+            .disposed(by: rx_disposeBag)
+    }
+}
+
+// show audio information
+extension HomeVC {
+    func showMetadata(song: Song) {
+        DispatchQueue.main.async {
+            if song.title != "" || song.artist != "" {
+                self.songLb.text = song.title
+                self.artistLb.text = song.artist
+                self.importLb.isHidden = true
+                self.songLb.isHidden = false
+                self.artistLb.isHidden = false
+            } else {
+                self.importLb.isHidden = false
+                self.songLb.isHidden = true
+                self.artistLb.isHidden = true
+            }
+            
+            if song.image != nil {
+                self.importedImageView.removeDashBorder()
+                self.importedImageView.image = song.image
+                self.importedImageView.contentMode = .scaleAspectFit
+            } else {
+                self.importedImageView.setDashBorder()
+                self.importedImageView.contentMode = .center
+                self.importedImageView.image = UIImage(named: "plus")
+            }
+            
+            // display time
+            self.timeLb.text = song.duration.toMinuteAndSecond()
+        }
     }
 }

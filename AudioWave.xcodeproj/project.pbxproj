@@ -22,6 +22,11 @@
 		B9C667D91FD2936F00939035 /* WaveScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667D81FD2936F00939035 /* WaveScrollView.swift */; };
 		B9C667DB1FD2937900939035 /* WaveScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C667DA1FD2937900939035 /* WaveScrollView.xib */; };
 		B9C667E71FD29AE900939035 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667E61FD29AE900939035 /* HomeViewModel.swift */; };
+		B9C667EB1FD29E7600939035 /* ImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667EA1FD29E7600939035 /* ImportManager.swift */; };
+		B9C667EE1FD29E8400939035 /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667ED1FD29E8400939035 /* Importer.swift */; };
+		B9C667F01FD29E8D00939035 /* LibraryImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667EF1FD29E8D00939035 /* LibraryImporter.swift */; };
+		B9C667F21FD29E9700939035 /* ICloudImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667F11FD29E9700939035 /* ICloudImporter.swift */; };
+		B9C667F41FD29F7700939035 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667F31FD29F7700939035 /* Song.swift */; };
 		E264BCEF3F50DFA4A7DB8ED6 /* Pods_AudioWave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC82FB5ACBF3A1BF2F3F7F8 /* Pods_AudioWave.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +72,11 @@
 		B9C667D81FD2936F00939035 /* WaveScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveScrollView.swift; sourceTree = "<group>"; };
 		B9C667DA1FD2937900939035 /* WaveScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveScrollView.xib; sourceTree = "<group>"; };
 		B9C667E61FD29AE900939035 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B9C667EA1FD29E7600939035 /* ImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportManager.swift; sourceTree = "<group>"; };
+		B9C667ED1FD29E8400939035 /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
+		B9C667EF1FD29E8D00939035 /* LibraryImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryImporter.swift; sourceTree = "<group>"; };
+		B9C667F11FD29E9700939035 /* ICloudImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudImporter.swift; sourceTree = "<group>"; };
+		B9C667F31FD29F7700939035 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		CFC82FB5ACBF3A1BF2F3F7F8 /* Pods_AudioWave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioWave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E899E3B03203A3E01DE8E6F5 /* Pods-AudioWave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioWave.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioWave/Pods-AudioWave.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +186,7 @@
 		B96196C01FD261BA0088E86C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B9C667E91FD29E6A00939035 /* Import File */,
 				B96196C91FD264540088E86C /* Constants.swift */,
 				B9C667D21FD28FDE00939035 /* Extensions.swift */,
 			);
@@ -213,8 +224,28 @@
 		B96196C41FD261DB0088E86C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B9C667F31FD29F7700939035 /* Song.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B9C667E91FD29E6A00939035 /* Import File */ = {
+			isa = PBXGroup;
+			children = (
+				B9C667EC1FD29E7A00939035 /* Importer */,
+				B9C667EA1FD29E7600939035 /* ImportManager.swift */,
+			);
+			path = "Import File";
+			sourceTree = "<group>";
+		};
+		B9C667EC1FD29E7A00939035 /* Importer */ = {
+			isa = PBXGroup;
+			children = (
+				B9C667ED1FD29E8400939035 /* Importer.swift */,
+				B9C667EF1FD29E8D00939035 /* LibraryImporter.swift */,
+				B9C667F11FD29E9700939035 /* ICloudImporter.swift */,
+			);
+			path = Importer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,10 +446,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9C667F41FD29F7700939035 /* Song.swift in Sources */,
 				B96196C71FD261F80088E86C /* HomeVC.swift in Sources */,
 				B910562E1FD25EF900FDB851 /* AppDelegate.swift in Sources */,
+				B9C667F21FD29E9700939035 /* ICloudImporter.swift in Sources */,
+				B9C667EE1FD29E8400939035 /* Importer.swift in Sources */,
+				B9C667F01FD29E8D00939035 /* LibraryImporter.swift in Sources */,
 				B9C667E71FD29AE900939035 /* HomeViewModel.swift in Sources */,
 				B9C667D91FD2936F00939035 /* WaveScrollView.swift in Sources */,
+				B9C667EB1FD29E7600939035 /* ImportManager.swift in Sources */,
 				B96196CA1FD264540088E86C /* Constants.swift in Sources */,
 				B9C667D31FD28FDE00939035 /* Extensions.swift in Sources */,
 				B9C667D51FD2935600939035 /* WaveFormView.swift in Sources */,
@@ -591,6 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CB7BJM62E3;
 				INFOPLIST_FILE = AudioWave/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dz.ios.AudioWave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -607,6 +644,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CB7BJM62E3;
 				INFOPLIST_FILE = AudioWave/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dz.ios.AudioWave;
 				PRODUCT_NAME = "$(TARGET_NAME)";

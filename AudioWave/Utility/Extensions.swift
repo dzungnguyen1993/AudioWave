@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 extension UIView {
     
@@ -57,5 +58,54 @@ extension UIView {
                 }
             }
         }
+    }
+}
+
+extension Double {
+    func toMinuteAndSecond() -> String {
+        let total = Int(self)
+        
+        let minute = total / 60
+        let second = total % 60
+        
+        if second < 10 {
+            return "\(minute):0\(second)"
+        }
+        return "\(minute):\(second)"
+    }
+}
+
+extension URL {
+    func toSongObject() -> Song {
+        let playerItem = AVPlayerItem(url: self)
+        let metadataList = playerItem.asset.commonMetadata
+        
+        var song = Song()
+        song.url = self
+        
+        for item in metadataList {
+            if let key = item.commonKey?.rawValue, let value = item.value {
+                if key == "title" {
+                    song.title = value as! String
+                }
+                if key  == "artist" {
+                    song.artist = value as! String
+                }
+                if key == "artwork" {
+                    if let audioImage = UIImage(data: value as! Data) {
+                        song.image = audioImage
+                    }
+                }
+            }
+        }
+        
+        do {
+            let audioPlayer = try AVAudioPlayer(contentsOf: self)
+            song.duration = audioPlayer.duration
+        } catch {
+            song.duration = 0
+        }
+        
+        return song
     }
 }
