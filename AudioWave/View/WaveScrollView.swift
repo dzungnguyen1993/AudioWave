@@ -13,6 +13,7 @@ class WaveScrollView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var waveView: WaveFormView!
+    @IBOutlet weak var constraintWaveViewWidth: NSLayoutConstraint!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -32,6 +33,17 @@ class WaveScrollView: UIView {
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options:NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": self.contentView]))
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options:NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": self.contentView]))
         
+        waveView.isFixedSize = false
+    }
+    
+    // draw wave
+    func drawWave(_ values: [CGFloat]) {
+        waveView.points = values
+        
+        // update waveView frame
+        constraintWaveViewWidth.constant = (CGFloat)(Double(values.count) * Double(Constants.WaveForm.spacing)) + self.frame.size.width/2
+        print(constraintWaveViewWidth.constant)
+        waveView.setNeedsDisplay()
     }
 
 }

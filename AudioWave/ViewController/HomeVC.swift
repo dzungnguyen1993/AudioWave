@@ -93,9 +93,8 @@ class HomeVC: UIViewController {
         
         // draw wave
         viewModel.drawPoints.asObservable()
-            .subscribe(onNext: {(drawPoints) in
-                // TODO
-                print("receive buffer")
+            .subscribe(onNext: {[weak self] (drawPoints) in
+                self?.drawWave(withPoints: drawPoints)
             })
             .disposed(by: rx_disposeBag)
     }
@@ -129,6 +128,19 @@ extension HomeVC {
             
             // display time
             self.timeLb.text = song.duration.toMinuteAndSecond()
+        }
+    }
+}
+
+// Draw wave
+extension HomeVC {
+    func drawWave(withPoints points: [CGFloat]) {
+        DispatchQueue.main.async {
+            self.waveScrollView.drawWave(points)
+            
+            self.bottomWaveView.points = points
+            
+            self.bottomWaveView.setNeedsDisplay()
         }
     }
 }

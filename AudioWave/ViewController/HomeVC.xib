@@ -123,23 +123,22 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jn-5M-pL1" userLabel="Content">
-                            <rect key="frame" x="0.0" y="38" width="375" height="329"/>
+                            <rect key="frame" x="-1" y="38" width="377" height="329"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6D-pA-ue6" customClass="WaveScrollView" customModule="AudioWave" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="329"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="377" height="329"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-9C-5ZN">
-                                    <rect key="frame" x="0.0" y="164" width="375" height="1"/>
+                                    <rect key="frame" x="0.0" y="164" width="377" height="1"/>
                                     <color key="backgroundColor" red="0.82745098039999998" green="0.86274509799999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="2bz-EF-6SK"/>
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="4Hf-jd-Yt7">
-                                    <rect key="frame" x="184" y="0.0" width="6" height="329"/>
+                                    <rect key="frame" x="185" y="0.0" width="6" height="329"/>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" red="0.94509803920000002" green="0.95686274510000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Qfg-9C-5ZN" secondAttribute="trailing" id="4mc-08-Jax"/>
                                 <constraint firstAttribute="bottom" secondItem="4Hf-jd-Yt7" secondAttribute="bottom" id="6BO-Pn-v6X"/>
@@ -166,6 +165,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBC-lZ-BK5" customClass="WaveFormView" customModule="AudioWave" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
+                                    <color key="backgroundColor" red="0.94509803920000002" green="0.95686274510000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34a-xL-huG">
                                     <rect key="frame" x="0.0" y="18.5" width="375" height="1"/>
@@ -199,13 +199,13 @@
                     </subviews>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.95686274510000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="8jn-5M-pL1" secondAttribute="trailing" id="14I-If-Tab"/>
+                        <constraint firstAttribute="trailing" secondItem="8jn-5M-pL1" secondAttribute="trailing" constant="-1" id="14I-If-Tab"/>
                         <constraint firstItem="Mns-qG-4Nf" firstAttribute="leading" secondItem="8Jp-Gt-orG" secondAttribute="leading" id="84F-lW-dO3"/>
                         <constraint firstItem="8jn-5M-pL1" firstAttribute="top" secondItem="EGo-Gq-NGd" secondAttribute="bottom" id="KNh-IU-i1z"/>
                         <constraint firstAttribute="trailing" secondItem="Mns-qG-4Nf" secondAttribute="trailing" id="Oe9-AK-Kkb"/>
                         <constraint firstAttribute="bottom" secondItem="Mns-qG-4Nf" secondAttribute="bottom" id="S6T-HU-4Yw"/>
                         <constraint firstItem="EGo-Gq-NGd" firstAttribute="top" secondItem="8Jp-Gt-orG" secondAttribute="top" id="Usy-8Z-OWk"/>
-                        <constraint firstItem="8jn-5M-pL1" firstAttribute="leading" secondItem="8Jp-Gt-orG" secondAttribute="leading" id="ddR-dz-5jL"/>
+                        <constraint firstItem="8jn-5M-pL1" firstAttribute="leading" secondItem="8Jp-Gt-orG" secondAttribute="leading" constant="-1" id="ddR-dz-5jL"/>
                         <constraint firstItem="EGo-Gq-NGd" firstAttribute="leading" secondItem="8Jp-Gt-orG" secondAttribute="leading" constant="-1" id="dh9-cI-pr2"/>
                         <constraint firstAttribute="trailing" secondItem="EGo-Gq-NGd" secondAttribute="trailing" constant="-1" id="tWT-KE-i0p"/>
                         <constraint firstItem="Mns-qG-4Nf" firstAttribute="top" secondItem="8jn-5M-pL1" secondAttribute="bottom" id="vth-Qy-xrE"/>

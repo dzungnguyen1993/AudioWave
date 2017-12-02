@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WaveScrollView" customModule="AudioWave" customModuleProvider="target">
             <connections>
+                <outlet property="constraintWaveViewWidth" destination="Hv9-Xf-wIf" id="7dF-H6-krI"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="pLm-Zd-yuX"/>
                 <outlet property="scrollView" destination="zGA-eh-qqO" id="d8c-j5-YbA"/>
                 <outlet property="waveView" destination="cQu-sC-tgW" id="OMr-42-HKx"/>
@@ -21,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="409" height="471"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGA-eh-qqO">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGA-eh-qqO">
                     <rect key="frame" x="0.0" y="0.0" width="409" height="471"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mc1-Ef-4dg">
@@ -34,7 +35,7 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQu-sC-tgW" customClass="WaveFormView" customModule="AudioWave" customModuleProvider="target">
                             <rect key="frame" x="204.5" y="0.0" width="100" height="471"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.94509803920000002" green="0.95686274510000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="Hv9-Xf-wIf"/>
                             </constraints>
@@ -46,12 +47,11 @@
                         <constraint firstAttribute="bottom" secondItem="cQu-sC-tgW" secondAttribute="bottom" id="FKR-e7-jMu"/>
                         <constraint firstItem="cQu-sC-tgW" firstAttribute="leading" secondItem="mc1-Ef-4dg" secondAttribute="leading" id="fqW-5I-5lg"/>
                         <constraint firstItem="mc1-Ef-4dg" firstAttribute="centerX" secondItem="zGA-eh-qqO" secondAttribute="centerX" id="gkM-zc-nUd"/>
-                        <constraint firstAttribute="trailing" secondItem="cQu-sC-tgW" secondAttribute="trailing" constant="85" id="tNx-Rw-WS8"/>
+                        <constraint firstAttribute="trailing" secondItem="cQu-sC-tgW" secondAttribute="trailing" id="tNx-Rw-WS8"/>
                         <constraint firstItem="cQu-sC-tgW" firstAttribute="height" secondItem="zGA-eh-qqO" secondAttribute="height" id="z0h-yN-0uN"/>
                     </constraints>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="zGA-eh-qqO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KxU-9W-czm"/>
                 <constraint firstItem="zGA-eh-qqO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ReX-uz-GtC"/>
