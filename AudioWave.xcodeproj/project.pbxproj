@@ -27,6 +27,7 @@
 		B9C667F01FD29E8D00939035 /* LibraryImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667EF1FD29E8D00939035 /* LibraryImporter.swift */; };
 		B9C667F21FD29E9700939035 /* ICloudImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667F11FD29E9700939035 /* ICloudImporter.swift */; };
 		B9C667F41FD29F7700939035 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667F31FD29F7700939035 /* Song.swift */; };
+		B9C667F71FD2B04C00939035 /* AudioRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667F61FD2B04C00939035 /* AudioRender.swift */; };
 		E264BCEF3F50DFA4A7DB8ED6 /* Pods_AudioWave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC82FB5ACBF3A1BF2F3F7F8 /* Pods_AudioWave.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		B9C667EF1FD29E8D00939035 /* LibraryImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryImporter.swift; sourceTree = "<group>"; };
 		B9C667F11FD29E9700939035 /* ICloudImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudImporter.swift; sourceTree = "<group>"; };
 		B9C667F31FD29F7700939035 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		B9C667F61FD2B04C00939035 /* AudioRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRender.swift; sourceTree = "<group>"; };
 		CFC82FB5ACBF3A1BF2F3F7F8 /* Pods_AudioWave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioWave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E899E3B03203A3E01DE8E6F5 /* Pods-AudioWave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioWave.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioWave/Pods-AudioWave.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +188,7 @@
 		B96196C01FD261BA0088E86C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B9C667F51FD2B04200939035 /* Render */,
 				B9C667E91FD29E6A00939035 /* Import File */,
 				B96196C91FD264540088E86C /* Constants.swift */,
 				B9C667D21FD28FDE00939035 /* Extensions.swift */,
@@ -246,6 +249,14 @@
 				B9C667F11FD29E9700939035 /* ICloudImporter.swift */,
 			);
 			path = Importer;
+			sourceTree = "<group>";
+		};
+		B9C667F51FD2B04200939035 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				B9C667F61FD2B04C00939035 /* AudioRender.swift */,
+			);
+			path = Render;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,6 +464,7 @@
 				B9C667EE1FD29E8400939035 /* Importer.swift in Sources */,
 				B9C667F01FD29E8D00939035 /* LibraryImporter.swift in Sources */,
 				B9C667E71FD29AE900939035 /* HomeViewModel.swift in Sources */,
+				B9C667F71FD2B04C00939035 /* AudioRender.swift in Sources */,
 				B9C667D91FD2936F00939035 /* WaveScrollView.swift in Sources */,
 				B9C667EB1FD29E7600939035 /* ImportManager.swift in Sources */,
 				B96196CA1FD264540088E86C /* Constants.swift in Sources */,

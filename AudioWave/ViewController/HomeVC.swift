@@ -90,6 +90,14 @@ class HomeVC: UIViewController {
                 self?.showMetadata(song: song)
             })
             .disposed(by: rx_disposeBag)
+        
+        // draw wave
+        viewModel.drawPoints.asObservable()
+            .subscribe(onNext: {(drawPoints) in
+                // TODO
+                print("receive buffer")
+            })
+            .disposed(by: rx_disposeBag)
     }
 }
 
