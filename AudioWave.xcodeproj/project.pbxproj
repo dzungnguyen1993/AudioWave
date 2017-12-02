@@ -21,6 +21,7 @@
 		B9C667D71FD2935F00939035 /* WaveFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C667D61FD2935F00939035 /* WaveFormView.xib */; };
 		B9C667D91FD2936F00939035 /* WaveScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667D81FD2936F00939035 /* WaveScrollView.swift */; };
 		B9C667DB1FD2937900939035 /* WaveScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C667DA1FD2937900939035 /* WaveScrollView.xib */; };
+		B9C667E71FD29AE900939035 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667E61FD29AE900939035 /* HomeViewModel.swift */; };
 		E264BCEF3F50DFA4A7DB8ED6 /* Pods_AudioWave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC82FB5ACBF3A1BF2F3F7F8 /* Pods_AudioWave.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		B9C667D61FD2935F00939035 /* WaveFormView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveFormView.xib; sourceTree = "<group>"; };
 		B9C667D81FD2936F00939035 /* WaveScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveScrollView.swift; sourceTree = "<group>"; };
 		B9C667DA1FD2937900939035 /* WaveScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveScrollView.xib; sourceTree = "<group>"; };
+		B9C667E61FD29AE900939035 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CFC82FB5ACBF3A1BF2F3F7F8 /* Pods_AudioWave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioWave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E899E3B03203A3E01DE8E6F5 /* Pods-AudioWave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioWave.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioWave/Pods-AudioWave.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +196,7 @@
 		B96196C21FD261C80088E86C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B9C667E61FD29AE900939035 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 			files = (
 				B96196C71FD261F80088E86C /* HomeVC.swift in Sources */,
 				B910562E1FD25EF900FDB851 /* AppDelegate.swift in Sources */,
+				B9C667E71FD29AE900939035 /* HomeViewModel.swift in Sources */,
 				B9C667D91FD2936F00939035 /* WaveScrollView.swift in Sources */,
 				B96196CA1FD264540088E86C /* Constants.swift in Sources */,
 				B9C667D31FD28FDE00939035 /* Extensions.swift in Sources */,
