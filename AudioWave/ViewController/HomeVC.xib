@@ -16,6 +16,7 @@
                 <outlet property="artistLb" destination="5OW-NM-3ik" id="7Bx-kO-xvK"/>
                 <outlet property="backwardBtn" destination="mWf-qk-F2B" id="6NS-yR-4Bm"/>
                 <outlet property="bottomWaveView" destination="aBC-lZ-BK5" id="3sf-89-olu"/>
+                <outlet property="constraintSmallMarkerLeading" destination="5c0-Hc-rrt" id="Rv5-5W-gfw"/>
                 <outlet property="forwardBtn" destination="9rS-Fa-dXN" id="cdw-la-6Wm"/>
                 <outlet property="importBtn" destination="guz-8S-7rY" id="EbN-cQ-2Nt"/>
                 <outlet property="importLb" destination="6NW-Hm-vN0" id="kq6-2V-Y7I"/>

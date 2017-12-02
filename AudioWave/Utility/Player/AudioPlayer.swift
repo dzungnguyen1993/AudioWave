@@ -10,13 +10,14 @@ import AVFoundation
 import RxSwift
 import NSObject_Rx
 
-class AudioPlayer: NSObject {
+class AudioPlayer: NSObject, AVAudioPlayerDelegate {
     var audioUrl: URL!
     var player : AVAudioPlayer!
     var timer: Timer!
     var timePublisher = PublishSubject<Double>()
     
     init(url: URL) {
+        super.init()
         self.audioUrl = url
         
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -26,6 +27,7 @@ class AudioPlayer: NSObject {
             player = try AVAudioPlayer(contentsOf: url)
             player.enableRate = true
             player.prepareToPlay()
+            player.delegate = self
         } catch {
             
         }
@@ -59,6 +61,10 @@ class AudioPlayer: NSObject {
         player.rate = max(player.rate - 0.1, 0.5)
         
         return player.rate
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        timer.invalidate()
     }
 }
 

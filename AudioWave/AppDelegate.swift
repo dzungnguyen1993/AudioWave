@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = homeVC
         self.window?.makeKeyAndVisible()
         
+        // set app always awake
+        UIApplication.shared.isIdleTimerDisabled = true
         return true
     }
 

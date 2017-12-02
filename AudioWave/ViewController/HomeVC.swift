@@ -26,6 +26,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var waveScrollView: WaveScrollView!
     @IBOutlet weak var bottomWaveView: WaveFormView!
     
+    @IBOutlet weak var constraintSmallMarkerLeading: NSLayoutConstraint!
+    
     lazy var viewModel = HomeViewModel(rootController: self)
 
     override func viewDidLoad() {
@@ -126,6 +128,16 @@ class HomeVC: UIViewController {
             } .asDriver(onErrorJustReturn: "")
             .drive(timeLb.rx.text)
             .disposed(by: rx_disposeBag)
+        
+        // update play percent
+        viewModel.timeAndPercentPublisher
+            .asObservable()
+            .map { (timeLeft, percent) -> Double in
+                return percent
+            }
+            .subscribe(onNext: {[weak self] (percent) in
+                self?.scroll(toPercentage: percent)
+            }).disposed(by: rx_disposeBag)
     }
 }
 
@@ -198,5 +210,18 @@ extension HomeVC {
     func tapBackward() {
         // decrease speed
         speedLb.text = viewModel.decreaseSpeed()
+    }
+}
+
+// Scrolling
+extension HomeVC {
+    func scroll(toPercentage percent: Double) {
+        self.waveScrollView.scroll(toPercentage: percent)
+        
+        // also move the small marker here
+        DispatchQueue.main.async {
+            self.constraintSmallMarkerLeading.constant = CGFloat(percent) * self.view.frame.size.width
+            self.view.layoutIfNeeded()
+        }
     }
 }

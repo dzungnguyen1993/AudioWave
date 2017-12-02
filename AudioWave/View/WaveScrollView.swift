@@ -46,4 +46,12 @@ class WaveScrollView: UIView {
         waveView.setNeedsDisplay()
     }
 
+    // scroll when playing
+    func scroll(toPercentage percent: Double) {
+        let size = Double(waveView.points.count) * Double(Constants.WaveForm.spacing)
+        
+        UIView.animate(withDuration: 0.2) {
+            self.scrollView.setContentOffset(CGPoint(x: size * percent, y: 0), animated: true)
+        }
+    }
 }
