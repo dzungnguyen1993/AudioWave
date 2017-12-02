@@ -13,6 +13,7 @@
 		B91056381FD25EF900FDB851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B91056361FD25EF900FDB851 /* LaunchScreen.storyboard */; };
 		B91056431FD25EF900FDB851 /* AudioWaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91056421FD25EF900FDB851 /* AudioWaveTests.swift */; };
 		B910564E1FD25EF900FDB851 /* AudioWaveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910564D1FD25EF900FDB851 /* AudioWaveUITests.swift */; };
+		B94053011FD2ED1500B37CA3 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94053001FD2ED1500B37CA3 /* AudioPlayer.swift */; };
 		B96196C71FD261F80088E86C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96196C51FD261F80088E86C /* HomeVC.swift */; };
 		B96196C81FD261F80088E86C /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96196C61FD261F80088E86C /* HomeVC.xib */; };
 		B96196CA1FD264540088E86C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96196C91FD264540088E86C /* Constants.swift */; };
@@ -64,6 +65,7 @@
 		B91056491FD25EF900FDB851 /* AudioWaveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioWaveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B910564D1FD25EF900FDB851 /* AudioWaveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioWaveUITests.swift; sourceTree = "<group>"; };
 		B910564F1FD25EF900FDB851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B94053001FD2ED1500B37CA3 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		B96196C51FD261F80088E86C /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B96196C61FD261F80088E86C /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		B96196C91FD264540088E86C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -185,9 +187,18 @@
 			path = AudioWaveUITests;
 			sourceTree = "<group>";
 		};
+		B94052FF1FD2ED0800B37CA3 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				B94053001FD2ED1500B37CA3 /* AudioPlayer.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		B96196C01FD261BA0088E86C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B94052FF1FD2ED0800B37CA3 /* Player */,
 				B9C667F51FD2B04200939035 /* Render */,
 				B9C667E91FD29E6A00939035 /* Import File */,
 				B96196C91FD264540088E86C /* Constants.swift */,
@@ -470,6 +481,7 @@
 				B96196CA1FD264540088E86C /* Constants.swift in Sources */,
 				B9C667D31FD28FDE00939035 /* Extensions.swift in Sources */,
 				B9C667D51FD2935600939035 /* WaveFormView.swift in Sources */,
+				B94053011FD2ED1500B37CA3 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

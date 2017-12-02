@@ -13,7 +13,9 @@ import NSObject_Rx
 class HomeViewModel: NSObject {
     let selectedUrlSubject = PublishSubject<URL>()
     let drawPoints = PublishSubject<[CGFloat]>()
-
+    var player: AudioPlayer!
+    let timeAndPercentPublisher = PublishSubject<(Double, Double)>()
+    
     init(rootController: UIViewController) {
         super.init()
         
@@ -22,6 +24,13 @@ class HomeViewModel: NSObject {
             .asObservable()
             .subscribe(onNext: {[weak self] (url) in
                 self?.render(withURL: url)
+            }).disposed(by: self.rx_disposeBag)
+        
+        // player
+        selectedUrlSubject
+            .asObservable()
+            .subscribe(onNext: {[weak self] (url) in
+                self?.createPlayer(fromUrl: url)
             }).disposed(by: self.rx_disposeBag)
     }
     
@@ -43,5 +52,46 @@ class HomeViewModel: NSObject {
             .subscribe(onNext: { (pointsToDraw) in
                 self.drawPoints.onNext(pointsToDraw)
             }).disposed(by: rx_disposeBag)
+    }
+    
+    // increase speed
+    func increaseSpeed() -> String {
+        let rate = player.increaseSpeed()
+        
+        return "\(rate)x"
+    }
+    
+    // decrease speed
+    func decreaseSpeed() -> String {
+        let rate = player.decreaseSpeed()
+        
+        return "\(rate)x"
+    }
+}
+
+extension HomeViewModel {
+    func didPlay(toTime time: Double) {
+        let duration = player.getDuration()
+        let timeLeft = duration - time
+        
+        let percent = time / duration
+        
+        // notify about time and play percentage
+        timeAndPercentPublisher.onNext((timeLeft, percent))
+    }
+    
+    func createPlayer(fromUrl url: URL) {
+        player = AudioPlayer(url: url)
+        player.timePublisher.asObservable().subscribe(onNext: {[weak self] (time) in
+            self?.didPlay(toTime: time)
+        }).disposed(by: rx_disposeBag)
+    }
+    
+    func play() {
+        player.play()
+    }
+    
+    func pause() {
+        player.pause()
     }
 }
