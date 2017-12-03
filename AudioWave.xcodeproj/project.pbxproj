@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		226C3D0E69D4582EF8597718 /* Pods_AudioWaveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3092EDF1E3BD6AD1B8DF71D5 /* Pods_AudioWaveUITests.framework */; };
+		6D7C5E6D6D3D7BB649511035 /* Pods_AudioWaveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821ADBCB7B6EC46C804FD563 /* Pods_AudioWaveTests.framework */; };
 		B910562E1FD25EF900FDB851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910562D1FD25EF900FDB851 /* AppDelegate.swift */; };
 		B91056331FD25EF900FDB851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B91056311FD25EF900FDB851 /* Main.storyboard */; };
 		B91056351FD25EF900FDB851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B91056341FD25EF900FDB851 /* Assets.xcassets */; };
 		B91056381FD25EF900FDB851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B91056361FD25EF900FDB851 /* LaunchScreen.storyboard */; };
 		B91056431FD25EF900FDB851 /* AudioWaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91056421FD25EF900FDB851 /* AudioWaveTests.swift */; };
-		B910564E1FD25EF900FDB851 /* AudioWaveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910564D1FD25EF900FDB851 /* AudioWaveUITests.swift */; };
 		B917A2481FD4079A00EA3378 /* MPMediaLibrary+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917A2471FD4079A00EA3378 /* MPMediaLibrary+rx.swift */; };
 		B917A24A1FD40B2400EA3378 /* UIAlertViewController+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917A2491FD40B2400EA3378 /* UIAlertViewController+rx.swift */; };
 		B917A24C1FD40D0200EA3378 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917A24B1FD40D0200EA3378 /* Utility.swift */; };
 		B94053011FD2ED1500B37CA3 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94053001FD2ED1500B37CA3 /* AudioPlayer.swift */; };
+		B95534711FD44D0B00C88F61 /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = B95534701FD44D0B00C88F61 /* test.wav */; };
+		B95534721FD44DC500C88F61 /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = B95534701FD44D0B00C88F61 /* test.wav */; };
+		B95534741FD44E0200C88F61 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B95534731FD44E0200C88F61 /* test.mp3 */; };
+		B95534751FD44E3400C88F61 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B95534731FD44E0200C88F61 /* test.mp3 */; };
+		B95534771FD44EC600C88F61 /* test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B95534761FD44EC600C88F61 /* test.m4a */; };
+		B95534781FD44EC600C88F61 /* test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B95534761FD44EC600C88F61 /* test.m4a */; };
 		B96196C71FD261F80088E86C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96196C51FD261F80088E86C /* HomeVC.swift */; };
 		B96196C81FD261F80088E86C /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96196C61FD261F80088E86C /* HomeVC.xib */; };
 		B96196CA1FD264540088E86C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96196C91FD264540088E86C /* Constants.swift */; };
@@ -32,6 +39,8 @@
 		B9C667F21FD29E9700939035 /* ICloudImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667F11FD29E9700939035 /* ICloudImporter.swift */; };
 		B9C667F41FD29F7700939035 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667F31FD29F7700939035 /* Song.swift */; };
 		B9C667F71FD2B04C00939035 /* AudioRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C667F61FD2B04C00939035 /* AudioRender.swift */; };
+		B9CED7091FD45236005E7A02 /* AudioWaveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910564D1FD25EF900FDB851 /* AudioWaveUITests.swift */; };
+		B9CED70B1FD4527B005E7A02 /* HomeVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CED70A1FD4527B005E7A02 /* HomeVCUITests.swift */; };
 		E264BCEF3F50DFA4A7DB8ED6 /* Pods_AudioWave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC82FB5ACBF3A1BF2F3F7F8 /* Pods_AudioWave.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +64,10 @@
 /* Begin PBXFileReference section */
 		3092EDF1E3BD6AD1B8DF71D5 /* Pods_AudioWaveUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioWaveUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB70F2179C703330B2155F4 /* Pods-AudioWave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioWave.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioWave/Pods-AudioWave.debug.xcconfig"; sourceTree = "<group>"; };
+		5EF8EFEF37F9EEB9B170DB2F /* Pods-AudioWaveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioWaveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioWaveTests/Pods-AudioWaveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		821ADBCB7B6EC46C804FD563 /* Pods_AudioWaveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioWaveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		862DCA44C485DBD47ECA8D2E /* Pods-AudioWaveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioWaveUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioWaveUITests/Pods-AudioWaveUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AFE7D1032AFBD9DEF11CF4F0 /* Pods-AudioWaveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioWaveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioWaveUITests/Pods-AudioWaveUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B910562A1FD25EF900FDB851 /* AudioWave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioWave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B910562D1FD25EF900FDB851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B91056321FD25EF900FDB851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +84,9 @@
 		B917A2491FD40B2400EA3378 /* UIAlertViewController+rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+rx.swift"; sourceTree = "<group>"; };
 		B917A24B1FD40D0200EA3378 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		B94053001FD2ED1500B37CA3 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		B95534701FD44D0B00C88F61 /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test.wav; sourceTree = "<group>"; };
+		B95534731FD44E0200C88F61 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
+		B95534761FD44EC600C88F61 /* test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.m4a; sourceTree = "<group>"; };
 		B96196C51FD261F80088E86C /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B96196C61FD261F80088E86C /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		B96196C91FD264540088E86C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -87,6 +102,8 @@
 		B9C667F11FD29E9700939035 /* ICloudImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudImporter.swift; sourceTree = "<group>"; };
 		B9C667F31FD29F7700939035 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		B9C667F61FD2B04C00939035 /* AudioRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRender.swift; sourceTree = "<group>"; };
+		B9CED70A1FD4527B005E7A02 /* HomeVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCUITests.swift; sourceTree = "<group>"; };
+		BC35E0FAFE0B4C5416D1F280 /* Pods-AudioWaveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioWaveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioWaveTests/Pods-AudioWaveTests.release.xcconfig"; sourceTree = "<group>"; };
 		CFC82FB5ACBF3A1BF2F3F7F8 /* Pods_AudioWave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioWave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E899E3B03203A3E01DE8E6F5 /* Pods-AudioWave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioWave.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioWave/Pods-AudioWave.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D7C5E6D6D3D7BB649511035 /* Pods_AudioWaveTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226C3D0E69D4582EF8597718 /* Pods_AudioWaveUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +141,10 @@
 			children = (
 				5EB70F2179C703330B2155F4 /* Pods-AudioWave.debug.xcconfig */,
 				E899E3B03203A3E01DE8E6F5 /* Pods-AudioWave.release.xcconfig */,
+				5EF8EFEF37F9EEB9B170DB2F /* Pods-AudioWaveTests.debug.xcconfig */,
+				BC35E0FAFE0B4C5416D1F280 /* Pods-AudioWaveTests.release.xcconfig */,
+				AFE7D1032AFBD9DEF11CF4F0 /* Pods-AudioWaveUITests.debug.xcconfig */,
+				862DCA44C485DBD47ECA8D2E /* Pods-AudioWaveUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -178,8 +201,10 @@
 		B91056411FD25EF900FDB851 /* AudioWaveTests */ = {
 			isa = PBXGroup;
 			children = (
+				B955346B1FD448E400C88F61 /* Resources */,
 				B91056421FD25EF900FDB851 /* AudioWaveTests.swift */,
 				B91056441FD25EF900FDB851 /* Info.plist */,
+				B9CED70A1FD4527B005E7A02 /* HomeVCUITests.swift */,
 			);
 			path = AudioWaveTests;
 			sourceTree = "<group>";
@@ -209,6 +234,16 @@
 				B94053001FD2ED1500B37CA3 /* AudioPlayer.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		B955346B1FD448E400C88F61 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B95534761FD44EC600C88F61 /* test.m4a */,
+				B95534731FD44E0200C88F61 /* test.mp3 */,
+				B95534701FD44D0B00C88F61 /* test.wav */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B96196C01FD261BA0088E86C /* Utility */ = {
@@ -314,9 +349,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B91056551FD25EF900FDB851 /* Build configuration list for PBXNativeTarget "AudioWaveTests" */;
 			buildPhases = (
+				F9B1EFE3545ABFC9445869FD /* [CP] Check Pods Manifest.lock */,
 				B910563A1FD25EF900FDB851 /* Sources */,
 				B910563B1FD25EF900FDB851 /* Frameworks */,
 				B910563C1FD25EF900FDB851 /* Resources */,
+				3E64CC4313CF43B753DC20FC /* [CP] Embed Pods Frameworks */,
+				1CD6BF3EE286E0D5BAF4F438 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -332,9 +370,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B91056581FD25EF900FDB851 /* Build configuration list for PBXNativeTarget "AudioWaveUITests" */;
 			buildPhases = (
+				CF95624F465062B1F5696967 /* [CP] Check Pods Manifest.lock */,
 				B91056451FD25EF900FDB851 /* Sources */,
 				B91056461FD25EF900FDB851 /* Frameworks */,
 				B91056471FD25EF900FDB851 /* Resources */,
+				0CEB3700FC8EF9C449E5F77F /* [CP] Embed Pods Frameworks */,
+				84A82E88DE6B0AEF196DCD1E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -398,10 +439,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9C667D71FD2935F00939035 /* WaveFormView.xib in Resources */,
+				B95534771FD44EC600C88F61 /* test.m4a in Resources */,
 				B91056381FD25EF900FDB851 /* LaunchScreen.storyboard in Resources */,
 				B96196C81FD261F80088E86C /* HomeVC.xib in Resources */,
 				B91056351FD25EF900FDB851 /* Assets.xcassets in Resources */,
+				B95534721FD44DC500C88F61 /* test.wav in Resources */,
 				B9C667DB1FD2937900939035 /* WaveScrollView.xib in Resources */,
+				B95534751FD44E3400C88F61 /* test.mp3 in Resources */,
 				B91056331FD25EF900FDB851 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +454,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95534741FD44E0200C88F61 /* test.mp3 in Resources */,
+				B95534781FD44EC600C88F61 /* test.m4a in Resources */,
+				B95534711FD44D0B00C88F61 /* test.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +470,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0CEB3700FC8EF9C449E5F77F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AudioWaveUITests/Pods-AudioWaveUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioWaveUITests/Pods-AudioWaveUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		16A6B0829D0B720AC12C8D3A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,6 +514,56 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioWave/Pods-AudioWave-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1CD6BF3EE286E0D5BAF4F438 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioWaveTests/Pods-AudioWaveTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E64CC4313CF43B753DC20FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AudioWaveTests/Pods-AudioWaveTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioWaveTests/Pods-AudioWaveTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84A82E88DE6B0AEF196DCD1E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioWaveUITests/Pods-AudioWaveUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9DCBA9352520D072F533D2D7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -459,6 +576,42 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-AudioWave-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF95624F465062B1F5696967 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AudioWaveUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9B1EFE3545ABFC9445869FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AudioWaveTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -512,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B91056431FD25EF900FDB851 /* AudioWaveTests.swift in Sources */,
+				B9CED70B1FD4527B005E7A02 /* HomeVCUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +673,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B910564E1FD25EF900FDB851 /* AudioWaveUITests.swift in Sources */,
+				B9CED7091FD45236005E7A02 /* AudioWaveUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +825,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CB7BJM62E3;
 				INFOPLIST_FILE = AudioWave/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -688,6 +843,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CB7BJM62E3;
 				INFOPLIST_FILE = AudioWave/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -701,6 +857,7 @@
 		};
 		B91056561FD25EF900FDB851 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EF8EFEF37F9EEB9B170DB2F /* Pods-AudioWaveTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -718,6 +875,7 @@
 		};
 		B91056571FD25EF900FDB851 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC35E0FAFE0B4C5416D1F280 /* Pods-AudioWaveTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -735,6 +893,7 @@
 		};
 		B91056591FD25EF900FDB851 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFE7D1032AFBD9DEF11CF4F0 /* Pods-AudioWaveUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -751,6 +910,7 @@
 		};
 		B910565A1FD25EF900FDB851 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 862DCA44C485DBD47ECA8D2E /* Pods-AudioWaveUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

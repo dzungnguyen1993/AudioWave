@@ -11,14 +11,18 @@ target 'AudioWave' do
   pod 'RxCocoa', '~> 4.0'
   pod 'NVActivityIndicatorView'
 
-#  target 'AudioWaveTests' do
-#    inherit! :search_paths
-#    # Pods for testing
-#  end
-#
-#  target 'AudioWaveUITests' do
-#    inherit! :search_paths
-#    # Pods for testing
-#  end
+  target 'AudioWaveTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'Quick'
+    pod 'Nimble'
+  end
+
+  target 'AudioWaveUITests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'Quick'
+    pod 'Nimble'
+  end
 
 end

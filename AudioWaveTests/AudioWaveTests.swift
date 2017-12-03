@@ -6,31 +6,66 @@
 //  Copyright © 2017 Thanh-Dung Nguyen. All rights reserved.
 //
 
-import XCTest
+import Foundation
+import Quick
+import Nimble
+import AVFoundation
+import RxSwift
+import NSObject_Rx
+
 @testable import AudioWave
 
-class AudioWaveTests: XCTestCase {
+// Testing the vehicle
+class AudioWaveTests: QuickSpec {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    override func spec() {
+        
+        describe("Test extract info from audio file with wav file") {
+            
+            context("After extract and downsample") {
+                let url = Bundle.main.url(forResource: "test", withExtension: "wav")
+
+                it("Number of points to draw should be equal") {
+                    let render = AudioRender()
+                    
+                    render.render(url: url!)?
+                        .subscribe(onNext: { (pointsToDraw) in
+                            expect(pointsToDraw.count).to(equal(31))
+                        }).disposed(by: self.rx_disposeBag)
+                }
+            }
+        }
+        
+        describe("Test extract info from audio file with mp3 file") {
+            
+            context("After extract and downsample") {
+                let url = Bundle.main.url(forResource: "test", withExtension: "mp3")
+                
+                it("Number of points to draw should be equal") {
+                    let render = AudioRender()
+                    
+                    render.render(url: url!)?
+                        .subscribe(onNext: { (pointsToDraw) in
+                            expect(pointsToDraw.count).to(equal(3345))
+                        }).disposed(by: self.rx_disposeBag)
+                }
+            }
+        }
+        
+        describe("Test extract info from audio file with m4a file") {
+            
+            context("After extract and downsample") {
+                let url = Bundle.main.url(forResource: "test", withExtension: "m4a")
+                
+                it("Number of points to draw should be equal") {
+                    let render = AudioRender()
+                    
+                    render.render(url: url!)?
+                        .subscribe(onNext: { (pointsToDraw) in
+                            expect(pointsToDraw.count).to(equal(37))
+                        }).disposed(by: self.rx_disposeBag)
+                }
+            }
         }
     }
-    
 }
