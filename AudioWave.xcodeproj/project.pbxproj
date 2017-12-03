@@ -193,6 +193,16 @@
 			path = AudioWaveUITests;
 			sourceTree = "<group>";
 		};
+		B93B3B7B1FD42CA30066BE0D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B9C667D21FD28FDE00939035 /* Extensions.swift */,
+				B917A2471FD4079A00EA3378 /* MPMediaLibrary+rx.swift */,
+				B917A2491FD40B2400EA3378 /* UIAlertViewController+rx.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B94052FF1FD2ED0800B37CA3 /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,13 +214,11 @@
 		B96196C01FD261BA0088E86C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B93B3B7B1FD42CA30066BE0D /* Extensions */,
 				B94052FF1FD2ED0800B37CA3 /* Player */,
 				B9C667F51FD2B04200939035 /* Render */,
 				B9C667E91FD29E6A00939035 /* Import File */,
 				B96196C91FD264540088E86C /* Constants.swift */,
-				B9C667D21FD28FDE00939035 /* Extensions.swift */,
-				B917A2471FD4079A00EA3378 /* MPMediaLibrary+rx.swift */,
-				B917A2491FD40B2400EA3378 /* UIAlertViewController+rx.swift */,
 				B917A24B1FD40D0200EA3378 /* Utility.swift */,
 			);
 			path = Utility;

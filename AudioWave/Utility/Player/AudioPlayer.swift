@@ -52,18 +52,21 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
         return player.duration
     }
     
+    // increase speed
     func increaseSpeed() -> Float {
-        player.rate = min(player.rate + 0.1, 1.5)
+        player.rate = min(player.rate + Constants.modifySpeedStep, Constants.maxSpeed)
         
         return player.rate
     }
     
+    // decrease speed
     func decreaseSpeed() -> Float {
-        player.rate = max(player.rate - 0.1, 0.5)
+        player.rate = max(player.rate - Constants.modifySpeedStep, Constants.minSpeed)
         
         return player.rate
     }
     
+    // notify when finish playing
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         timer.invalidate()
         self.endPublisher.onNext(())

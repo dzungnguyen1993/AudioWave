@@ -117,7 +117,7 @@ class HomeVC: UIViewController {
         importVideoButton.setValue(UIImage(named: "video"), forKey: "image")
         
         // icloud
-        let importMoreButton = UIAlertAction(title: "Browse", style: .default) { (action) in
+        let importMoreButton = UIAlertAction(title: "iCloud Drive", style: .default) { (action) in
             // show import from icloud drive
             self.viewModel.showImport(withType: .icloud)
             
@@ -228,6 +228,9 @@ extension HomeVC {
             self.playBtn.tag = 0
             
             self.waveScrollView.scrollToTop()
+            
+            // also reset the small marker
+            self.constraintSmallMarkerLeading.constant = 0
         }
     }
 }
@@ -241,6 +244,9 @@ extension HomeVC {
             self.bottomWaveView.points = points
             
             self.bottomWaveView.setNeedsDisplay()
+            
+            // also reset the small marker
+            self.constraintSmallMarkerLeading.constant = 0
         }
     }
     

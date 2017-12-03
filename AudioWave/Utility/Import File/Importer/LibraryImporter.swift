@@ -43,8 +43,8 @@ class LibraryImporter: Importer, MPMediaPickerControllerDelegate {
     
     private func errorMessage() {
         let rootViewController = Utility.getRootViewController()
-        rootViewController?.alert(title: "No access to media library",
-              text: "You can grant access to AudioWave from settings")
+        rootViewController?.alert(title: Constants.Messages.libraryAuthorizeFailedTitle,
+              text: Constants.Messages.libraryAuthorizeFailedMsg)
             .take(5.0, scheduler: MainScheduler.instance)
             .subscribe(onDisposed: {
                 
@@ -54,12 +54,12 @@ class LibraryImporter: Importer, MPMediaPickerControllerDelegate {
     
     
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
-        let mpMediaItem = mediaItemCollection.items.first!
-        let url = mpMediaItem.assetURL!
-        
-        self.selectedUrlSubject.onNext(url)
-        
-        mediaPicker.dismiss(animated: true, completion: nil)
+        mediaPicker.dismiss(animated: true) {
+            let mpMediaItem = mediaItemCollection.items.first!
+            let url = mpMediaItem.assetURL!
+            
+            self.selectedUrlSubject.onNext(url)
+        }
     }
     
     func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {

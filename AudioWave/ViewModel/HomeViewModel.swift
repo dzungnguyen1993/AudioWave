@@ -56,7 +56,17 @@ class HomeViewModel: NSObject {
                 
                 // notify about new url
                 self.selectedUrlSubject.onNext(url)
-            }            
+            } else {
+                // show alert
+                let rootViewController = Utility.getRootViewController()
+                rootViewController?.alert(title: Constants.Messages.importAudioFailedTitle,
+                                          text: Constants.Messages.importAudioFailedMsg)
+                    .take(5.0, scheduler: MainScheduler.instance)
+                    .subscribe(onDisposed: {
+                        
+                    })
+                    .disposed(by: self.rx_disposeBag)
+            }
         }
     }
     
