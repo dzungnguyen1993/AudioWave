@@ -14,7 +14,8 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
     var audioUrl: URL!
     var player : AVAudioPlayer!
     var timer: Timer!
-    var timePublisher = PublishSubject<Double>()
+    let timePublisher = PublishSubject<Double>()
+    let endPublisher = PublishSubject<Void>()
     
     init(url: URL) {
         super.init()
@@ -65,6 +66,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         timer.invalidate()
+        self.endPublisher.onNext(())
     }
 }
 

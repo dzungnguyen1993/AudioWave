@@ -20,4 +20,7 @@ class Constants: NSObject {
         static let waveColor: Int = 0x7E8999
         static let samplePerPixel: CGFloat = 200.0
     }
+    
+    static let btnPlayTagPause = 0
+    static let btnPlayTagPlaying = 1
 }

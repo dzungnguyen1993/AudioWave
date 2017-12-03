@@ -15,6 +15,9 @@ class HomeViewModel: NSObject {
     let drawPoints = PublishSubject<[CGFloat]>()
     var player: AudioPlayer!
     let timeAndPercentPublisher = PublishSubject<(Double, Double)>()
+    let endPlayingPublisher = PublishSubject<Void>()
+    
+    var song: Song!
     
     init(rootController: UIViewController) {
         super.init()
@@ -38,6 +41,8 @@ class HomeViewModel: NSObject {
     func showImport(withType type: PickerType) {
         // open picker to pick audio file
         ImportManager.shared.openPicker(withType: type) { (url) in
+            // save current song
+            self.song = url.toSongObject()
             // notify about new url
             self.selectedUrlSubject.onNext(url)
         }
@@ -85,6 +90,10 @@ extension HomeViewModel {
         player.timePublisher.asObservable().subscribe(onNext: {[weak self] (time) in
             self?.didPlay(toTime: time)
         }).disposed(by: rx_disposeBag)
+        
+        player.endPublisher.asObservable().subscribe(onNext: {[weak self] in
+            self?.didFinishPlaying()
+        }).disposed(by: rx_disposeBag)
     }
     
     func play() {
@@ -93,5 +102,9 @@ extension HomeViewModel {
     
     func pause() {
         player.pause()
+    }
+    
+    func didFinishPlaying() {
+        self.endPlayingPublisher.onNext(())
     }
 }

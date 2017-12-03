@@ -29,6 +29,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var constraintSmallMarkerLeading: NSLayoutConstraint!
     
     lazy var viewModel = HomeViewModel(rootController: self)
+    
+    let stopTag = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,21 +56,27 @@ class HomeVC: UIViewController {
             .disposed(by: rx_disposeBag)
         
         playBtn.rx.tap
-//            .debounce(1.0, scheduler: MainScheduler.instance)
+            .skipWhile({[weak self] () -> Bool in
+                return self?.viewModel.song == nil
+            })
             .subscribe(onNext: { [weak self] () in
                 self?.tapPlay()
             })
             .disposed(by: rx_disposeBag)
         
         forwardBtn.rx.tap
-//            .debounce(1.0, scheduler: MainScheduler.instance)
+            .skipWhile({[weak self] () -> Bool in
+                return self?.viewModel.song == nil
+            })
             .subscribe(onNext: { [weak self] () in
                 self?.tapForward()
             })
             .disposed(by: rx_disposeBag)
         
         backwardBtn.rx.tap
-//            .debounce(1.0, scheduler: MainScheduler.instance)
+            .skipWhile({[weak self] () -> Bool in
+                return self?.viewModel.song == nil
+            })
             .subscribe(onNext: { [weak self] () in
                 self?.tapBackward()
             })
@@ -87,6 +95,11 @@ class HomeVC: UIViewController {
         let importVideoButton = UIAlertAction(title: "Music Library", style: .default) { (action) in
             // show import from music library
             self.viewModel.showImport(withType: .itunes)
+            
+            // pause player when show import
+            if (self.playBtn.tag == Constants.btnPlayTagPlaying) {
+                self.tapPlay()
+            }
         }
         importVideoButton.setValue(UIImage(named: "video"), forKey: "image")
         
@@ -94,6 +107,11 @@ class HomeVC: UIViewController {
         let importMoreButton = UIAlertAction(title: "Browse", style: .default) { (action) in
             // show import from icloud drive
             self.viewModel.showImport(withType: .icloud)
+            
+            // pause player when show import
+            if (self.playBtn.tag == Constants.btnPlayTagPlaying) {
+                self.tapPlay()
+            }
         }
         importMoreButton.setValue(UIImage(named: "more"), forKey: "image")
         
@@ -138,6 +156,11 @@ class HomeVC: UIViewController {
             .subscribe(onNext: {[weak self] (percent) in
                 self?.scroll(toPercentage: percent)
             }).disposed(by: rx_disposeBag)
+        
+        // be notified when finish playing
+        viewModel.endPlayingPublisher.asObservable().subscribe(onNext: {[weak self] in
+            self?.resetAfterPlaying()
+        }).disposed(by: rx_disposeBag)
     }
 }
 
@@ -169,6 +192,19 @@ extension HomeVC {
             
             // display time
             self.timeLb.text = song.duration.toMinuteAndSecond()
+            self.speedLb.text = "1.0x"
+        }
+    }
+    
+    func resetAfterPlaying() {
+        let song = viewModel.song
+        
+        DispatchQueue.main.async {
+            self.timeLb.text = song?.duration.toMinuteAndSecond()
+            self.playBtn.setImage(UIImage(named: "play"), for: .normal)
+            self.playBtn.tag = 0
+            
+            self.waveScrollView.scrollToTop()
         }
     }
 }
@@ -189,7 +225,7 @@ extension HomeVC {
 // Play audio
 extension HomeVC {
     func tapPlay() {
-        if playBtn.tag == 0 {
+        if playBtn.tag == Constants.btnPlayTagPause {
             viewModel.play()
             
             playBtn.setImage(UIImage(named: "pause"), for: .normal)

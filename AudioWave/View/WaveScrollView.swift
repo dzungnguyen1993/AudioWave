@@ -44,6 +44,8 @@ class WaveScrollView: UIView {
         constraintWaveViewWidth.constant = (CGFloat)(Double(values.count) * Double(Constants.WaveForm.spacing)) + self.frame.size.width/2
         print(constraintWaveViewWidth.constant)
         waveView.setNeedsDisplay()
+        
+        self.scrollToTop()
     }
 
     // scroll when playing
@@ -53,5 +55,9 @@ class WaveScrollView: UIView {
         UIView.animate(withDuration: 0.2) {
             self.scrollView.setContentOffset(CGPoint(x: size * percent, y: 0), animated: true)
         }
+    }
+    
+    func scrollToTop() {
+        self.scrollView.setContentOffset(CGPoint.zero, animated: false)
     }
 }
