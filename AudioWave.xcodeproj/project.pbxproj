@@ -13,6 +13,9 @@
 		B91056381FD25EF900FDB851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B91056361FD25EF900FDB851 /* LaunchScreen.storyboard */; };
 		B91056431FD25EF900FDB851 /* AudioWaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91056421FD25EF900FDB851 /* AudioWaveTests.swift */; };
 		B910564E1FD25EF900FDB851 /* AudioWaveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910564D1FD25EF900FDB851 /* AudioWaveUITests.swift */; };
+		B917A2481FD4079A00EA3378 /* MPMediaLibrary+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917A2471FD4079A00EA3378 /* MPMediaLibrary+rx.swift */; };
+		B917A24A1FD40B2400EA3378 /* UIAlertViewController+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917A2491FD40B2400EA3378 /* UIAlertViewController+rx.swift */; };
+		B917A24C1FD40D0200EA3378 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917A24B1FD40D0200EA3378 /* Utility.swift */; };
 		B94053011FD2ED1500B37CA3 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94053001FD2ED1500B37CA3 /* AudioPlayer.swift */; };
 		B96196C71FD261F80088E86C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96196C51FD261F80088E86C /* HomeVC.swift */; };
 		B96196C81FD261F80088E86C /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96196C61FD261F80088E86C /* HomeVC.xib */; };
@@ -65,6 +68,9 @@
 		B91056491FD25EF900FDB851 /* AudioWaveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioWaveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B910564D1FD25EF900FDB851 /* AudioWaveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioWaveUITests.swift; sourceTree = "<group>"; };
 		B910564F1FD25EF900FDB851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B917A2471FD4079A00EA3378 /* MPMediaLibrary+rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPMediaLibrary+rx.swift"; sourceTree = "<group>"; };
+		B917A2491FD40B2400EA3378 /* UIAlertViewController+rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+rx.swift"; sourceTree = "<group>"; };
+		B917A24B1FD40D0200EA3378 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		B94053001FD2ED1500B37CA3 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		B96196C51FD261F80088E86C /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B96196C61FD261F80088E86C /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
@@ -203,6 +209,9 @@
 				B9C667E91FD29E6A00939035 /* Import File */,
 				B96196C91FD264540088E86C /* Constants.swift */,
 				B9C667D21FD28FDE00939035 /* Extensions.swift */,
+				B917A2471FD4079A00EA3378 /* MPMediaLibrary+rx.swift */,
+				B917A2491FD40B2400EA3378 /* UIAlertViewController+rx.swift */,
+				B917A24B1FD40D0200EA3378 /* Utility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -473,9 +482,11 @@
 				B9C667F41FD29F7700939035 /* Song.swift in Sources */,
 				B96196C71FD261F80088E86C /* HomeVC.swift in Sources */,
 				B910562E1FD25EF900FDB851 /* AppDelegate.swift in Sources */,
+				B917A24A1FD40B2400EA3378 /* UIAlertViewController+rx.swift in Sources */,
 				B9C667F21FD29E9700939035 /* ICloudImporter.swift in Sources */,
 				B9C667EE1FD29E8400939035 /* Importer.swift in Sources */,
 				B9C667F01FD29E8D00939035 /* LibraryImporter.swift in Sources */,
+				B917A2481FD4079A00EA3378 /* MPMediaLibrary+rx.swift in Sources */,
 				B9C667E71FD29AE900939035 /* HomeViewModel.swift in Sources */,
 				B9C667F71FD2B04C00939035 /* AudioRender.swift in Sources */,
 				B9C667D91FD2936F00939035 /* WaveScrollView.swift in Sources */,
@@ -484,6 +495,7 @@
 				B9C667D31FD28FDE00939035 /* Extensions.swift in Sources */,
 				B9C667D51FD2935600939035 /* WaveFormView.swift in Sources */,
 				B94053011FD2ED1500B37CA3 /* AudioPlayer.swift in Sources */,
+				B917A24C1FD40D0200EA3378 /* Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

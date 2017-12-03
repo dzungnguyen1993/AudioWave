@@ -32,10 +32,4 @@ class Importer: NSObject {
     func showImportPage() {
         
     }
-
-    func getRootViewController() -> UIViewController? {
-        return UIApplication.shared.delegate?.window??.rootViewController
-    }
-
-
 }

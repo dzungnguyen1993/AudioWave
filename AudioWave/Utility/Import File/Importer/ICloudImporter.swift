@@ -13,7 +13,7 @@ class ICloudImporter: Importer, UIDocumentPickerDelegate {
     override func showImportPage() {
         let documentPickerController = UIDocumentPickerViewController(documentTypes: [ "public.audio"], in: .import)
         documentPickerController.delegate = self
-        self.getRootViewController()?.present(documentPickerController, animated: true, completion: nil)
+        Utility.getRootViewController()?.present(documentPickerController, animated: true, completion: nil)
     }
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
