@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol WaveScrollViewDelegate: class {
+    func scrollView(didScrollToPercentage percent: Double)
+}
+
 class WaveScrollView: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var waveView: WaveFormView!
     @IBOutlet weak var constraintWaveViewWidth: NSLayoutConstraint!
+    weak var delegate: WaveScrollViewDelegate?
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -25,6 +30,8 @@ class WaveScrollView: UIView {
         initView()
     }
     
+    fileprivate var isDragging = false
+    
     func initView() {
         Bundle.main.loadNibNamed("WaveScrollView", owner: self, options: nil)
         self.addSubview(self.contentView)
@@ -34,6 +41,7 @@ class WaveScrollView: UIView {
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options:NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": self.contentView]))
         
         waveView.isFixedSize = false
+        self.scrollView.delegate = self
     }
     
     // draw wave
@@ -51,6 +59,9 @@ class WaveScrollView: UIView {
 
     // scroll when playing
     func scroll(toPercentage percent: Double) {
+        if isDragging {
+            return
+        }
         let size = Double(waveView.points.count) * Double(Constants.WaveForm.spacing)
         
         UIView.animate(withDuration: 0.2) {
@@ -61,6 +72,24 @@ class WaveScrollView: UIView {
     func scrollToTop() {
         DispatchQueue.main.async {
             self.scrollView.setContentOffset(CGPoint.zero, animated: false)
+        }
+    }
+}
+
+extension WaveScrollView: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isDragging = true
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if isDragging {
+            let offset = Double(scrollView.contentOffset.x)
+            let total = Double(waveView.points.count) * Double(Constants.WaveForm.spacing)
+            
+            let percent = Double(offset / total)
+            isDragging = false
+            
+            self.delegate?.scrollView(didScrollToPercentage: percent)
         }
     }
 }

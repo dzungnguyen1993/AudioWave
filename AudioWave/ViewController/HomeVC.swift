@@ -44,6 +44,8 @@ class HomeVC: UIViewController {
         // add observer to animate render
         NotificationCenter.default.addObserver(self, selector: #selector(startRender), name: Notification.Name(Constants.startRenderNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(endRender), name: Notification.Name(Constants.endRenderNotification), object: nil)
+        
+        self.waveScrollView.delegate = self
     }
     
     // MARK: Initialize layout
@@ -299,9 +301,20 @@ extension HomeVC {
 }
 
 // Scrolling
-extension HomeVC {
+extension HomeVC: WaveScrollViewDelegate {
     func scroll(toPercentage percent: Double) {
         self.waveScrollView.scroll(toPercentage: percent)
+        
+        // also move the small marker here
+        DispatchQueue.main.async {
+            self.constraintSmallMarkerLeading.constant = CGFloat(percent) * self.view.frame.size.width
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func scrollView(didScrollToPercentage percent: Double) {
+        // set player to this percentage
+        viewModel.seekPlayer(toPercentage: percent)
         
         // also move the small marker here
         DispatchQueue.main.async {

@@ -129,4 +129,8 @@ extension HomeViewModel {
     func didFinishPlaying() {
         self.endPlayingPublisher.onNext(())
     }
+
+    func seekPlayer(toPercentage percent: Double) {
+        player.seek(toPercentage: percent)
+    }
 }

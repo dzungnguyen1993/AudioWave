@@ -27,6 +27,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player.enableRate = true
+            player.numberOfLoops = 1
             player.prepareToPlay()
             player.delegate = self
         } catch {
@@ -70,6 +71,14 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         timer.invalidate()
         self.endPublisher.onNext(())
+    }
+    
+    func seek(toPercentage percent: Double) {
+        let duration = self.getDuration()
+        
+        let time = duration * percent
+        
+        self.player.currentTime = time
     }
 }
 
