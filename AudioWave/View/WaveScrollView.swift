@@ -41,9 +41,10 @@ class WaveScrollView: UIView {
         waveView.points = values
         
         // update waveView frame
-        constraintWaveViewWidth.constant = (CGFloat)(Double(values.count) * Double(Constants.WaveForm.spacing)) + self.frame.size.width/2
-        print(constraintWaveViewWidth.constant)
-        waveView.setNeedsDisplay()
+        DispatchQueue.main.async {
+            self.constraintWaveViewWidth.constant = (CGFloat)(Double(values.count) * Double(Constants.WaveForm.spacing)) + self.frame.size.width/2
+            self.waveView.setNeedsDisplay()
+        }
         
         self.scrollToTop()
     }
@@ -58,6 +59,8 @@ class WaveScrollView: UIView {
     }
     
     func scrollToTop() {
-        self.scrollView.setContentOffset(CGPoint.zero, animated: false)
+        DispatchQueue.main.async {
+            self.scrollView.setContentOffset(CGPoint.zero, animated: false)
+        }
     }
 }

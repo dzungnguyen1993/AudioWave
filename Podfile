@@ -9,7 +9,8 @@ target 'AudioWave' do
   pod 'RxSwift',    '~> 4.0'
   pod 'NSObject+Rx', '~> 2.0'
   pod 'RxCocoa', '~> 4.0'
-  
+  pod 'NVActivityIndicatorView'
+
 #  target 'AudioWaveTests' do
 #    inherit! :search_paths
 #    # Pods for testing

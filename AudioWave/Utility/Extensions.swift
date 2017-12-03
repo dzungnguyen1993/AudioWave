@@ -76,7 +76,7 @@ extension Double {
 }
 
 extension URL {
-    func toSongObject() -> Song {
+    func toSongObject() -> Song? {
         let playerItem = AVPlayerItem(url: self)
         let metadataList = playerItem.asset.commonMetadata
         
@@ -103,7 +103,7 @@ extension URL {
             let audioPlayer = try AVAudioPlayer(contentsOf: self)
             song.duration = audioPlayer.duration
         } catch {
-            song.duration = 0
+            return nil
         }
         
         return song

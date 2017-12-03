@@ -21,6 +21,7 @@
                 <outlet property="importBtn" destination="guz-8S-7rY" id="EbN-cQ-2Nt"/>
                 <outlet property="importLb" destination="6NW-Hm-vN0" id="kq6-2V-Y7I"/>
                 <outlet property="importedImageView" destination="HDF-HR-Jbe" id="dHf-kC-rKF"/>
+                <outlet property="indicator" destination="s3L-eV-ajo" id="UHF-Pm-hPN"/>
                 <outlet property="playBtn" destination="xif-AY-IIF" id="OhC-sV-nNR"/>
                 <outlet property="songLb" destination="XSu-st-BO1" id="1hh-Hi-gHo"/>
                 <outlet property="speedLb" destination="3gh-tU-mGq" id="qYJ-Mv-IHC"/>
@@ -259,6 +260,19 @@
                         <constraint firstItem="9rS-Fa-dXN" firstAttribute="centerY" secondItem="Uia-U6-E55" secondAttribute="centerY" id="U1x-CR-ogk"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3L-eV-ajo" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                    <rect key="frame" x="167.5" y="313.5" width="40" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="1oG-Hl-AUL"/>
+                        <constraint firstAttribute="height" constant="40" id="Tus-2t-BfM"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                            <color key="value" red="0.1843137255" green="0.85490196080000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -267,8 +281,10 @@
                 <constraint firstItem="HqH-MW-buX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5CJ-N4-F7w"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Uia-U6-E55" secondAttribute="bottom" id="FoJ-R8-XHa"/>
                 <constraint firstItem="8Jp-Gt-orG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PAW-Oc-zds"/>
+                <constraint firstItem="s3L-eV-ajo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qh5-Iq-x79"/>
                 <constraint firstItem="Uia-U6-E55" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SEq-pj-ZB9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Uia-U6-E55" secondAttribute="trailing" id="V6I-fI-AeA"/>
+                <constraint firstItem="s3L-eV-ajo" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="WvH-EL-8if"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8Jp-Gt-orG" secondAttribute="trailing" id="el8-H1-biT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HqH-MW-buX" secondAttribute="trailing" id="jeW-g0-YVD"/>
                 <constraint firstItem="HqH-MW-buX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="nqJ-jc-aKj"/>

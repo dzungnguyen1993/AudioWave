@@ -23,4 +23,7 @@ class Constants: NSObject {
     
     static let btnPlayTagPause = 0
     static let btnPlayTagPlaying = 1
+    static let startRenderNotification = "StartRender"
+    static let endRenderNotification = "EndRender"
+
 }

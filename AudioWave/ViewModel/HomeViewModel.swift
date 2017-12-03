@@ -22,9 +22,13 @@ class HomeViewModel: NSObject {
     init(rootController: UIViewController) {
         super.init()
         
+        let globalScheduler = ConcurrentDispatchQueueScheduler(queue:
+            DispatchQueue.global())
+        
         // subscribe to render
         selectedUrlSubject
             .asObservable()
+            .observeOn(globalScheduler)
             .subscribe(onNext: {[weak self] (url) in
                 self?.render(withURL: url)
             }).disposed(by: self.rx_disposeBag)
@@ -32,6 +36,7 @@ class HomeViewModel: NSObject {
         // player
         selectedUrlSubject
             .asObservable()
+            .observeOn(globalScheduler)
             .subscribe(onNext: {[weak self] (url) in
                 self?.createPlayer(fromUrl: url)
             }).disposed(by: self.rx_disposeBag)
@@ -41,10 +46,17 @@ class HomeViewModel: NSObject {
     func showImport(withType type: PickerType) {
         // open picker to pick audio file
         ImportManager.shared.openPicker(withType: type) { (url) in
-            // save current song
-            self.song = url.toSongObject()
-            // notify about new url
-            self.selectedUrlSubject.onNext(url)
+            // if valid url
+            if let song = url.toSongObject() {
+                // notify when finish render
+                let notificationName = Notification.Name(Constants.startRenderNotification)
+                NotificationCenter.default.post(name: notificationName, object: nil)
+
+                self.song = song
+                
+                // notify about new url
+                self.selectedUrlSubject.onNext(url)
+            }            
         }
     }
     

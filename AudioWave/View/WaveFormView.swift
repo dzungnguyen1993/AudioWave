@@ -95,6 +95,12 @@ class WaveFormView: UIView {
         UIColor(hex: Constants.WaveForm.waveColor).set()
         bottomPath.stroke(with: CGBlendMode.normal, alpha: 0.5)
         bottomPath.fill()
+        
+        if (!isFixedSize) {
+            // notify when finish render for big wave view
+            let notificationName = Notification.Name(Constants.endRenderNotification)
+            NotificationCenter.default.post(name: notificationName, object: nil)
+        }
     }
 
 }

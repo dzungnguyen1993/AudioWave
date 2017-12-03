@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import NSObject_Rx
 import RxCocoa
+import NVActivityIndicatorView
 
 class HomeVC: UIViewController {
 
@@ -25,6 +26,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var speedLb: UILabel!
     @IBOutlet weak var waveScrollView: WaveScrollView!
     @IBOutlet weak var bottomWaveView: WaveFormView!
+    @IBOutlet weak var indicator: NVActivityIndicatorView!
     
     @IBOutlet weak var constraintSmallMarkerLeading: NSLayoutConstraint!
     
@@ -38,16 +40,24 @@ class HomeVC: UIViewController {
         initLayout()
         addActions()
         subscribeToViewModel()
+        
+        // add observer to animate render
+        NotificationCenter.default.addObserver(self, selector: #selector(startRender), name: Notification.Name(Constants.startRenderNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endRender), name: Notification.Name(Constants.endRenderNotification), object: nil)
     }
     
     // MARK: Initialize layout
     func initLayout() {
         importedImageView.setDashBorder()
         importedImageView.cornerRadius = 3.0
+        
+        // set indicator color
+        indicator.color = UIColor.orange
     }
     
     // MARK: Actions
     func addActions() {
+        // import
         importBtn.rx.tap
 //            .debounce(0.2, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] () in
@@ -55,6 +65,7 @@ class HomeVC: UIViewController {
             })
             .disposed(by: rx_disposeBag)
         
+        // tap play
         playBtn.rx.tap
             .skipWhile({[weak self] () -> Bool in
                 return self?.viewModel.song == nil
@@ -64,6 +75,7 @@ class HomeVC: UIViewController {
             })
             .disposed(by: rx_disposeBag)
         
+        // tap increase speed
         forwardBtn.rx.tap
             .skipWhile({[weak self] () -> Bool in
                 return self?.viewModel.song == nil
@@ -73,6 +85,7 @@ class HomeVC: UIViewController {
             })
             .disposed(by: rx_disposeBag)
         
+        // tap decrease speed
         backwardBtn.rx.tap
             .skipWhile({[weak self] () -> Bool in
                 return self?.viewModel.song == nil
@@ -124,10 +137,15 @@ class HomeVC: UIViewController {
     
     // MARK: Subscribe to ViewModel
     func subscribeToViewModel() {
+        let globalScheduler = ConcurrentDispatchQueueScheduler(queue:
+            DispatchQueue.global())
+        
         // show audio information
         viewModel.selectedUrlSubject.asObservable().map { (url) -> Song in
-            url.toSongObject()
-            }.subscribe(onNext: {[weak self] (song) in
+            url.toSongObject()!
+            }
+            .observeOn(globalScheduler)
+            .subscribe(onNext: {[weak self] (song) in
                 self?.showMetadata(song: song)
             })
             .disposed(by: rx_disposeBag)
@@ -161,6 +179,11 @@ class HomeVC: UIViewController {
         viewModel.endPlayingPublisher.asObservable().subscribe(onNext: {[weak self] in
             self?.resetAfterPlaying()
         }).disposed(by: rx_disposeBag)
+    }
+    
+    deinit {
+        // remove observer
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -220,6 +243,16 @@ extension HomeVC {
             self.bottomWaveView.setNeedsDisplay()
         }
     }
+    
+    @objc func startRender() {
+        // show indicator
+        indicator.startAnimating()
+    }
+    
+    @objc func endRender() {
+        // end indicator
+        indicator.stopAnimating()
+    }
 }
 
 // Play audio
@@ -228,11 +261,15 @@ extension HomeVC {
         if playBtn.tag == Constants.btnPlayTagPause {
             viewModel.play()
             
-            playBtn.setImage(UIImage(named: "pause"), for: .normal)
+            DispatchQueue.main.async {
+                self.playBtn.setImage(UIImage(named: "pause"), for: .normal)
+            }
         } else {
             viewModel.pause()
             
-            playBtn.setImage(UIImage(named: "play"), for: .normal)
+            DispatchQueue.main.async {
+                self.playBtn.setImage(UIImage(named: "play"), for: .normal)
+            }
         }
         
         playBtn.tag = 1 - playBtn.tag
@@ -240,12 +277,18 @@ extension HomeVC {
     
     func tapForward() {
         // increase speed
-        speedLb.text = viewModel.increaseSpeed()
+        let speedString = viewModel.increaseSpeed()
+        DispatchQueue.main.async {
+            self.speedLb.text = speedString
+        }
     }
     
     func tapBackward() {
         // decrease speed
-        speedLb.text = viewModel.decreaseSpeed()
+        let speedString = viewModel.decreaseSpeed()
+        DispatchQueue.main.async {
+            self.speedLb.text = speedString
+        }
     }
 }
 
