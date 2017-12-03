@@ -27,7 +27,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player.enableRate = true
-            player.numberOfLoops = 1
+            player.numberOfLoops = 0
             player.prepareToPlay()
             player.delegate = self
         } catch {
@@ -39,7 +39,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
         player.play()
         
         // start timer
-        timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { (timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
             self.timePublisher.onNext(self.player.currentTime)
         })
     }
@@ -78,7 +78,12 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
         
         let time = duration * percent
         
-        self.player.currentTime = time
+        if percent == 1.0 {
+            // a trick to prevent auto re-play when scroll to the end of file
+            self.player.currentTime = time - 0.01
+        } else {
+            self.player.currentTime = time
+        }
     }
 }
 
